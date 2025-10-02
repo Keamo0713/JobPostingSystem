@@ -50,7 +50,7 @@ app.MapControllers();
 // SEED THE IN-MEMORY DATABASE WITH SOUTH AFRICAN SAMPLE DATA
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProviders;
+   var services = scope.ServiceProvider;;
     var context = services.GetRequiredService<ApplicationDbContext>();
     var logger = services.GetRequiredService<ILogger<Program>>();
 
