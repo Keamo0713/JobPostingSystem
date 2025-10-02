@@ -3,6 +3,7 @@
 
 
 📋 Features
+
 ✅ Add new job postings
 
 ✅ View all jobs with filtering
