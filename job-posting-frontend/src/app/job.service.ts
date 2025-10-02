@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 export interface Job {
   id: number;
@@ -17,14 +18,13 @@ export interface Job {
   providedIn: 'root'
 })
 export class JobService {
-  private apiUrl = 'http://localhost:5269/api/jobs';
+  private apiUrl = environment.apiUrl + '/jobs';
 
   constructor(private http: HttpClient) { }
 
   getAllJobs(type?: string, location?: string): Observable<Job[]> {
     let params = new HttpParams();
 
-    // Only add parameters if they have values
     if (type && type.trim() !== '') {
       params = params.set('type', type.trim());
     }
