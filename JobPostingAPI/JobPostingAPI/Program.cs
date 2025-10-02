@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using JobPostingAPI.Data;
 using JobPostingAPI.Models;
 
@@ -17,14 +17,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.EnableDetailedErrors(true);
 });
 
-// Add CORS
+// Add CORS - Updated for production
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200", "https://localhost:4200")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        policy.WithOrigins(
+            "http://localhost:4200", 
+            "https://localhost:4200",
+            "https://your-frontend-app.netlify.app", // Update after frontend deployment
+            "https://job-posting-frontend.netlify.app" // Common Netlify URL pattern
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod();
     });
 });
 
@@ -45,7 +50,7 @@ app.MapControllers();
 // SEED THE IN-MEMORY DATABASE WITH SOUTH AFRICAN SAMPLE DATA
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
+    var services = scope.ServiceProviders;
     var context = services.GetRequiredService<ApplicationDbContext>();
     var logger = services.GetRequiredService<ILogger<Program>>();
 
@@ -139,4 +144,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.Run();
+// RENDER DEPLOYMENT CONFIGURATION - ADD THIS AT THE END
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5269";
+app.Run($"http://0.0.0.0:{port}");
