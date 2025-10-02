@@ -1,10 +1,10 @@
 services:
   - type: web
     name: job-posting-api
-    env: dotnet
+    env: docker
     plan: free
-    buildCommand: dotnet publish -c Release -o ./publish
-    startCommand: cd ./publish && ./JobPostingAPI
+    dockerfilePath: JobPostingAPI/Dockerfile
+    dockerContext: JobPostingAPI
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
