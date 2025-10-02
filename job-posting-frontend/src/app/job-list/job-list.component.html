@@ -1,0 +1,113 @@
+<div class="list-wrapper">
+  <div class="list-header">
+    <h2>📋 Job Postings in South Africa</h2>
+    <p>Manage and filter your job listings across South Africa</p>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-inputs">
+      <div class="filter-group">
+        <input [(ngModel)]="filterType"
+               placeholder="Filter by Type (e.g., Full-Time, Contract)"
+               class="filter-input"
+               (input)="onFilterChange()">
+      </div>
+
+      <div class="filter-group">
+        <input [(ngModel)]="filterLocation"
+               placeholder="Filter by Location (e.g., Johannesburg, Cape Town)"
+               class="filter-input"
+               (input)="onFilterChange()">
+      </div>
+    </div>
+
+    <div class="filter-actions">
+      <div class="results-count">
+        Showing {{ filteredJobs.length }} of {{ jobs.length }} jobs
+      </div>
+      <button (click)="clearFilters()" class="clear-btn" *ngIf="filterType || filterLocation">
+        🗑️ Clear Filters
+      </button>
+      <button (click)="loadJobs()" class="refresh-btn">🔄 Refresh</button>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    ❌ {{ errorMessage }}
+  </div>
+
+  <div class="loading-spinner" *ngIf="isLoading">
+    ⏳ Loading jobs...
+  </div>
+
+  <div class="table-container" *ngIf="!isLoading && !errorMessage">
+    <table class="professional-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Job Title</th>
+          <th>Description</th>
+          <th>Requirements</th>
+          <th>Salary (ZAR)</th>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Closing Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of filteredJobs" class="table-row">
+          <td class="job-id">
+            <strong>#{{ job.id }}</strong>
+          </td>
+          <td class="job-title">
+            <strong>{{ job.title }}</strong>
+          </td>
+          <td class="job-description">
+            {{ job.description || 'No description specified' }}
+          </td>
+          <td class="job-requirements">
+            {{ job.requirements || 'No requirements specified' }}
+          </td>
+          <td class="salary">
+            {{ job.salary || 'Not specified' }}
+          </td>
+          <td>
+            <span class="job-type-badge" [class]="getTypeClass(job.type)">
+              {{ job.type }}
+            </span>
+          </td>
+          <td>
+            <span class="location">
+              📍 {{ job.location || 'Not specified' }}
+            </span>
+          </td>
+          <td>
+            <span class="closing-date" [class.expiring]="isExpiringSoon(job.closingDate)">
+              {{ job.closingDate | date:'mediumDate' }}
+            </span>
+          </td>
+          <td>
+            <span class="status-badge" [class]="getStatusClass(job.closingDate)">
+              {{ getStatus(job.closingDate) }}
+            </span>
+          </td>
+          <td>
+            <button class="delete-btn" (click)="deleteJob(job.id)" title="Delete job">
+              🗑️ Delete
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="filteredJobs.length === 0 && !isLoading">
+          <td colspan="10" class="no-data">
+            <div class="no-data-content">
+              <span>📭 No jobs found</span>
+              <p>Try adjusting your filters or add a new job posting</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="app-container">
+  <header class="dashboard-header">
+    <div class="header-content">
+      <h1>🎯 JobPost Pro</h1>
+      <p class="header-subtitle">Manage your job postings efficiently</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-card">
+        <span class="stat-number">{{ totalJobs }}</span>
+        <span class="stat-label">Total Jobs</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <div class="form-container">
+      <app-job-form (jobAdded)="onJobAdded()"></app-job-form>
+    </div>
+
+    <div class="list-container">
+      <app-job-list (jobsUpdated)="onJobsUpdated($event)"></app-job-list>
+    </div>
+  </div>
+</div>
+
+<router-outlet />

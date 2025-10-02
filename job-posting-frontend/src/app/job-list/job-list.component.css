@@ -1,0 +1,395 @@
+.list-wrapper {
+  padding: 30px;
+}
+
+.list-header {
+  margin-bottom: 30px;
+}
+
+  .list-header h2 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+
+  .list-header p {
+    color: #7f8c8d;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.filter-inputs {
+  display: flex;
+  gap: 15px;
+  flex: 1;
+}
+
+.filter-input {
+  padding: 10px 15px;
+  border: 2px solid #e8ecef;
+  border-radius: 8px;
+  font-size: 14px;
+  flex: 1;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+  .filter-input:focus {
+    outline: none;
+    border-color: #667eea;git
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+.results-count {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.refresh-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+  .refresh-btn:hover {
+    background: #218838;
+  }
+
+.loading-spinner {
+  text-align: center;
+  padding: 40px;
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+.table-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.professional-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+  .professional-table th {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .professional-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f1f3f4;
+  }
+
+.table-row:hover {
+  background-color: #f8f9fa;
+  transition: all 0.2s ease;
+}
+
+.job-title {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.job-description {
+  color: #666;
+  font-size: 0.9rem;
+  max-width: 200px;
+}
+
+.job-type-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+  .job-type-badge.full-time {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+
+  .job-type-badge.part-time {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+
+  .job-type-badge.contract {
+    background: #e8f5e8;
+    color: #388e3c;
+  }
+
+  .job-type-badge.remote {
+    background: #fff3e0;
+    color: #f57c00;
+  }
+
+  .job-type-badge.internship {
+    background: #fce4ec;
+    color: #c2185b;
+  }
+
+  .job-type-badge.default {
+    background: #f5f5f5;
+    color: #666;
+  }
+
+.location {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.closing-date {
+  font-weight: 500;
+}
+
+  .closing-date.expiring {
+    color: #e74c3c;
+    font-weight: 600;
+  }
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+  .status-badge.active {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .status-badge.expiring {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .status-badge.expired {
+    background: #f8d7da;
+    color: #721c24;
+  }
+
+  .status-badge.unknown {
+    background: #f5f5f5;
+    color: #666;
+  }
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+  .delete-btn:hover {
+    background-color: #f8d7da;
+    transform: scale(1.1);
+  }
+
+.no-data {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.no-data-content span {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.no-data-content p {
+  color: #a0a4a8;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.job-description { /* Add this class */
+  color: #666;
+  font-size: 0.9rem;
+  max-width: 200px;
+}
+
+.job-requirements { /* Keep this if you still use it elsewhere */
+  color: #666;
+  font-size: 0.9rem;
+  max-width: 200px;
+}
+
+.salary {
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.job-requirements {
+  color: #666;
+  font-size: 0.9rem;
+  max-width: 200px;
+  line-height: 1.4;
+}
+.job-id {
+  font-weight: 600;
+  color: #555;
+  text-align: center;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.3s ease;
+}
+
+  .delete-btn:hover {
+    background: #c82333;
+  }
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb;
+  font-weight: 500;
+}
+.filter-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.clear-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.3s ease;
+}
+
+  .clear-btn:hover {
+    background: #5a6268;
+  }
+
+.job-id {
+  font-weight: 600;
+  color: #555;
+  text-align: center;
+  width: 60px;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+
+  .delete-btn:hover {
+    background: #c82333;
+  }
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb;
+  font-weight: 500;
+}
+
+.salary {
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.filter-group {
+  position: relative;
+  flex: 1;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+  .suggestion-item:hover {
+    background: #f5f5f5;
+  }
+
+  .suggestion-item:last-child {
+    border-bottom: none;
+  }
+
+.no-results-warning {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.available-options {
+  margin-top: 5px;
+  color: #6c757d;
+}
+
+.debug-info {
+  margin-top: 10px;
+  color: #6c757d;
+}

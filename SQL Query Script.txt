@@ -1,0 +1,30 @@
+Query for Sql database
+
+-- SQL Code to create the [Jobs] table with Salary and Requirements
+-- Use this if you are manually creating the table.
+
+CREATE TABLE [dbo].[Jobs] (
+    -- Primary Key
+    [Id] INT IDENTITY(1, 1) NOT NULL,
+
+    -- Core Job Fields
+    [Title] NVARCHAR(MAX) NOT NULL,
+    [Location] NVARCHAR(MAX) NOT NULL,
+    [Type] NVARCHAR(MAX) NOT NULL,
+    [ClosingDate] DATETIME2 NOT NULL,
+
+    -- 🎯 NEW FIELD: Salary (Stored as string)
+    [Salary] NVARCHAR(50) NULL,
+
+    -- 🎯 NEW FIELD: Requirements (Explicitly stored, replacing the old 'Description')
+    [Requirements] NVARCHAR(MAX) NOT NULL, 
+
+    -- Define the primary key constraint
+    CONSTRAINT [PK_Jobs] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+-- Optional: Add sample data for testing
+INSERT INTO [dbo].[Jobs] (Title, Location, Type, ClosingDate, Salary, Requirements)
+VALUES
+('Senior UX Designer', 'Remote', 'Full-Time', '2025-12-31 00:00:00.0000000', '$120,000 - $140,000', '5+ years UX experience, Proficient in Figma, Strong portfolio required.'),
+('Junior Data Analyst', 'New York, NY', 'Contract', '2025-11-30 00:00:00.0000000', '$55k - $70k', 'SQL, Python, and advanced Excel skills. Must have a Bachelor''s degree.');

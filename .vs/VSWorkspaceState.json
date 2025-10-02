@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\JobPostingAPISystem\\job-posting-frontend",
+    "\\JobPostingAPISystem\\job-posting-frontend\\src",
+    "\\JobPostingAPISystem\\job-posting-frontend\\src\\app",
+    "\\JobPostingAPISystem\\job-posting-frontend\\src\\app\\job-form",
+    "\\JobPostingAPISystem\\job-posting-frontend\\src\\app\\job-list",
+    "\\JobPostingAPISystem\\JobPostingAPI",
+    "\\JobPostingAPISystem\\JobPostingAPI\\JobPostingAPI",
+    "\\JobPostingAPISystem\\JobPostingAPI\\JobPostingAPI\\Controllers",
+    "\\JobPostingAPISystem\\JobPostingAPI\\JobPostingAPI\\Data"
+  ],
+  "PreviewInSolutionExplorer": false
+}
