@@ -1,6 +1,6 @@
 <img width="1570" height="783" alt="User entry" src="https://github.com/user-attachments/assets/b735d340-1ac3-402f-9498-d4c46ec76240" />
-🚀 Job Posting System
-A full-stack job posting application built with Angular frontend and .NET 8 backend, featuring job management, filtering, and real-time updates.
+
+
 
 📋 Features
 ✅ Add new job postings
