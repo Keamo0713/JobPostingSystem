@@ -1,10 +1,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["JobPostingAPI.csproj", "."]
-RUN dotnet restore "JobPostingAPI.csproj"
+
+# Copy project file
+COPY *.csproj .
+RUN dotnet restore
+
+# Copy everything else
 COPY . .
-RUN dotnet build "JobPostingAPI.csproj" -c Release -o /app/build
-RUN dotnet publish "JobPostingAPI.csproj" -c Release -o /app/publish
+RUN dotnet publish -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
